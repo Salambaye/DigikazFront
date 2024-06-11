@@ -1,0 +1,63 @@
+<app-spinner *ngIf="isUsersLoading"></app-spinner>
+
+<div class="create-user-button">
+  <button mat-fab color="primary" extended (click)="addUser()">
+    <mat-icon>add</mat-icon> Users
+  </button>
+</div>
+<div>
+  <form [formGroup]="mySearch" (ngSubmit)="searchUsers()">
+    <mat-form-field appearance="fill">
+      <mat-label>Search</mat-label>
+      <input matInput formControlName="search" [value]="searchTerm" placeholder="Enter search term">
+    </mat-form-field>
+    <button mat-button>Search</button>
+  </form>
+</div>
+<div>
+  <mat-paginator [length]="totalUsersCount" [pageSizeOptions]="pageSizeOptions" (page)="loadUsers()"
+    [pageIndex]="pageIndex">
+  </mat-paginator>
+</div>
+
+<table mat-table [dataSource]="users" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> ID </th>
+    <td mat-cell *matCellDef="let user"> {{user.id}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="username">
+    <th mat-header-cell *matHeaderCellDef> Username </th>
+    <td mat-cell *matCellDef="let user"> {{user.username}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef> Email </th>
+    <td mat-cell *matCellDef="let user"> {{user.email}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="isloc">
+    <th mat-header-cell *matHeaderCellDef> Type </th>
+    <td mat-cell *matCellDef="let user"> {{user.isloc == true ? "Owner" : "Lessee"}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="action">
+    <th mat-header-cell *matHeaderCellDef> Actions </th>
+    <td mat-cell *matCellDef="let user">
+      <!-- Add your CRUD icons here, adjust the click handlers accordingly -->
+      <button mat-icon-button color="primary" (click)="viewUser(user.id)">
+        <mat-icon>visibility</mat-icon>
+      </button>
+      <button mat-icon-button color="accent" (click)="editUser(user.id)">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button color="warn" (click)="deleteUser(user.id)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+</table>

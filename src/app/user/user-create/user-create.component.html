@@ -1,0 +1,48 @@
+<app-spinner *ngIf="isCreateUsersLoading"></app-spinner>
+
+<div class="list-user-button">
+    <button mat-fab extended color="primary" (click)="viewUsers()">
+        <mat-icon>view_list</mat-icon> Users List
+    </button>
+</div>
+<div class="create-user-form-container">
+    <h2 style="text-align: center;">Create User</h2>
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+
+        <div>
+            <mat-form-field>
+                <mat-label>Username</mat-label>
+                <input matInput id="username" type="number" formControlName="username" placeholder="Put your Username">
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field>
+                <mat-label>Email</mat-label>
+                <input matInput id="email" type="email" placeholder="Put your email">
+            </mat-form-field>
+        </div>
+
+
+        <div>
+            <mat-form-field>
+                <mat-label>User Type</mat-label>
+                <mat-select formControlName="isloc" placeholder="Put the user type">
+                    <mat-option>Select User Type</mat-option>
+                    <mat-option value="owner">Owner</mat-option>
+                    <mat-option value="leesse">leesse</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div style="color: red; text-align: center;" *ngIf="errorMessage">
+            {{errorMessage}}
+        </div>
+
+        <div style="text-align: center;">
+            <button mat-raised-button type="submit" [disabled]="userForm.invalid" color="primary">
+                Créer User
+            </button>
+        </div>
+    </form>
+</div>

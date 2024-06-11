@@ -1,0 +1,23 @@
+<app-spinner *ngIf="isPostsLoading"></app-spinner>
+
+<div class="create-post-container">
+    <button mat-fab extended color="primary" (click)="toggleCreatePost()">
+        <mat-icon>{{ showCreatePost ? 'add' : 'view_list' }}</mat-icon>
+        {{ showCreatePost ? 'Create Post' : 'List Posts' }}
+    </button>
+</div>
+
+<div *ngIf="!showCreatePost && !isPostsLoading && posts.length">
+    <app-post-create></app-post-create>
+</div>
+
+<div class="posts-container">
+    <div class="example-card" *ngFor="let post of posts">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>{{ post.title }}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>{{ post.body }}</mat-card-content>
+        </mat-card>
+    </div>
+</div>

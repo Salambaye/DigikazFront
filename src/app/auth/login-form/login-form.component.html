@@ -1,0 +1,29 @@
+<app-spinner *ngIf="isLoginLoading"></app-spinner>
+
+<div class="login-container">
+    <mat-card>
+        <h1 style="text-align: center;">Login</h1>
+        <mat-card-content>
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <div>
+                    <mat-form-field>
+                        <mat-label>Enter your username</mat-label>
+                        <input matInput placeholder="pat@example.com" formControlName="username" required>
+                    </mat-form-field>
+                </div>
+
+                <div>
+                    <mat-form-field>
+                        <mat-label>Password</mat-label>
+                        <input matInput id="password" type="password" formControlName="password"
+                            placeholder="Put your password">
+                    </mat-form-field>
+                </div>
+
+                <mat-card-actions>
+                    <button mat-raised-button type=" submit" color="primary">Connexion</button>
+                </mat-card-actions>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

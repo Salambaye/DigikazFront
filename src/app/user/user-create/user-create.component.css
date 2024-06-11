@@ -1,0 +1,73 @@
+/* property-create.component.css */
+
+/* Styles pour le formulaire */
+
+.create-user-form-container{
+    display: block;
+    justify-content: center;
+    margin: 5%;
+}
+
+.list-user-button{
+    display: flex;
+    justify-content: center;
+    margin: 5%;
+}
+
+mat-card {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  mat-card-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  mat-select {
+    width: 100%;
+  }
+  
+  /* Styles pour les boutons */
+  mat-card-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  
+  /* Styles pour les erreurs de formulaire */
+  mat-error {
+    color: #f44336;
+    font-size: 14px;
+  }
+  
+  /* Styles pour le champ de fichier (images) */
+  input[type="file"] {
+    display: none;
+  }
+  
+  label[for="images"] {
+    cursor: pointer;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  label[for="images"]:hover {
+    background-color: #0056b3;
+  }
+  

@@ -1,0 +1,39 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #673ab7;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+header h1 {
+    margin: 0;
+}
+
+.features {
+    display: flex;
+    justify-content: space-around;
+    padding: 40px 0;
+}
+
+.feature {
+    text-align: center;
+}
+
+.contact {
+    background-color: #f2f2f2;
+    padding: 40px 0;
+    text-align: center;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}

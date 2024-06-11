@@ -1,0 +1,5 @@
+.create-user-button{
+    display: flex;
+    justify-content: center;
+    margin: 5%;
+}

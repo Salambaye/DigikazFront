@@ -1,0 +1,40 @@
+<app-spinner *ngIf="isPropertyLoading"></app-spinner>
+
+<div class="create-property-button">
+    <button mat-fab color="primary" extended (click)="addProperty()">
+        <mat-icon>add</mat-icon> Property
+    </button>
+</div>
+
+<div class="view-properties-container">
+    <div class="property-card" *ngFor="let property of properties">
+        <mat-card>
+            <mat-card-header>
+                <div mat-card-avatar class="property-header-image"></div>
+                <mat-card-title>{{ property.title }}</mat-card-title>
+                <mat-card-subtitle>
+                    <div class="property_location">
+                        <mat-icon>location_on</mat-icon>
+                        {{ property.location }}
+                    </div>
+                </mat-card-subtitle>
+            </mat-card-header>
+            <div class="property-card-img">
+                <img mat-card-xl-image width="150px" src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+                    alt="Photo of a Shiba Inu">
+            </div>
+            <mat-card-content>
+                <p>
+                    {{ property.property_type }}<br>
+                    {{ property.description.slice(0, 50) }} <br>
+                </p>
+            </mat-card-content>
+            <div class="property-buttons">
+                <mat-card-actions>
+                    <button mat-button><mat-icon>favorite</mat-icon></button>
+                    <button mat-button><mat-icon>share</mat-icon></button>
+                </mat-card-actions>
+            </div>
+        </mat-card>
+    </div>
+</div>
